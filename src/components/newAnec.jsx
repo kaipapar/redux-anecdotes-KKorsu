@@ -7,8 +7,8 @@ const NewAnec = () => {
 
     const addAnec = (event) => {
         event.preventDefault()
-        const content = event.target.note.value
-        event.target.note.value = ''
+        const content = event.target.anec.value
+        event.target.anec.value = ''
         dispatch(createAnec(content))
     }
     return (

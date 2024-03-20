@@ -24,15 +24,14 @@ const reducer = (state = initialState, action) => {
   console.log('action', action)
   switch (action.type){
     case 'NEW_ANECDOTE':
-      const new_anec = asObject(action.payload)
+      const new_anec = asObject(action.payload.content)
       return state.concat(new_anec)
     case 'VOTE':
       const id = action.payload.id
-      const votes = action.payload.votes + 1
       const anecToChange = state.find(n => n.id === id)
       const changedAnec = {
         ...anecToChange, 
-        votes: votes
+        votes: anecToChange.votes ? anecToChange.votes + 1 : 1
       }
       return state.map(anec => 
         anec.id !== id ? anec : changedAnec)
