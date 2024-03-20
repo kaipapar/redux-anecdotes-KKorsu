@@ -1,12 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux'
+import {vote} from './reducers/actionReducer'
+import NewAnec from './components/newAnec'
 
 const App = () => {
   const anecdotes = useSelector(state => state)
   const dispatch = useDispatch()
 
-  const vote = (id) => {
+  const vote_for = (id) => {
     console.log('vote', id)
-    dispatch()
+    dispatch(vote(id))
   }
 
   return (
@@ -19,15 +21,11 @@ const App = () => {
           </div>
           <div>
             has {anecdote.votes}
-            <button onClick={() => vote(anecdote.id)}>vote</button>
+            <button onClick={() => vote_for(anecdote.id)}>vote</button>
           </div>
         </div>
       )}
-      <h2>create new</h2>
-      <form>
-        <div><input /></div>
-        <button>create</button>
-      </form>
+    <NewAnec />
     </div>
   )
 }
