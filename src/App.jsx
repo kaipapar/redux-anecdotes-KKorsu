@@ -3,8 +3,9 @@ import {vote} from './reducers/actionReducer'
 import NewAnec from './components/newAnec'
 
 const App = () => {
-  const anecdotes = useSelector(state => state)
-  const dispatch = useDispatch()
+const anecdotes = useSelector(state => [...state].sort((a, b) => b.votes - a.votes));
+
+const dispatch = useDispatch()
 
   const vote_for = (id) => {
     console.log('vote', id)
