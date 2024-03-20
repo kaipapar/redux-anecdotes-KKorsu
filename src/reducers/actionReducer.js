@@ -10,5 +10,11 @@ const vote = (id) => { return {
 }
 }
 
+const filterChange = (filter) => { return {
+        type: 'SET_FILTER',
+        payload: {filter},
+    }
+}
 
-export {createAnec, vote}
+
+export {createAnec, vote, filterChange}
