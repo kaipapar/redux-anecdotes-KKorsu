@@ -11,10 +11,8 @@ const vote = (id) => { return {
 }
 
 const filterChange = (filter) => { return {
-        type: 'SET_FILTER',
-        payload: {filter},
-    }
-}
-
-
+    type: 'SET_FILTER',
+    payload: {filter},
+  }
+  }
 export {createAnec, vote, filterChange}
