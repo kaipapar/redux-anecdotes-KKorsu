@@ -5,15 +5,16 @@ const Filter = () => {
     const dispatch = useDispatch()
 
     const handleChange = (event) => {
-        console.log(event)
-        dispatch(filterChange(event))
+        const filterValue = event.target.value
+        console.log("filterValue ",filterValue)
+        dispatch(filterChange(filterValue))
     }
     const style = {
         marginBottom: 10
     }
     return (
         <div style={style}>
-            filter <input onChange={({target}) => handleChange(target.value)}/>
+            filter <input onChange={handleChange}/>
         </div>
     )
 }

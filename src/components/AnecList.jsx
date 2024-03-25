@@ -3,18 +3,20 @@ import {vote} from '../reducers/actionReducer'
 
 const AnecList = () =>{
  
-  const anecdotes = useSelector(state => [...state.anecs].sort((a, b) => b.votes - a.votes))
-/*       {
-        if (state.filter === '') {
-          return [...state.anecs].sort((a, b) => b.votes - a.votes)
-        } else {
-          return [...state.anecs].filter(x => x.content.includes(state.filter)).sort((a, b) => b.votes - a.votes)
+  const anecdotes = useSelector(state => 
+       { if (state.filter !== ""){
+          console.log("anecs tb filtered: ", state.anecs, "filter state: ",state.filter.filter)
+          return [...state.anecs].filter(x => x.content.includes(state.filter.filter)).sort((a, b) => b.votes - a.votes)        
+       }
+       return [...state.anecs].sort((a, b) => b.votes - a.votes)
         }
         
-      }) */
-      
+      )
+  //const filtered_anecs = [...anecdotes].filter(x => x.content.includes(state.filter))
 
-    const dispatch = useDispatch()
+  console.log("anecdotes to be rendered: ",anecdotes)    
+  
+  const dispatch = useDispatch()
 
   const vote_for = (id) => {
     console.log('vote', id)
