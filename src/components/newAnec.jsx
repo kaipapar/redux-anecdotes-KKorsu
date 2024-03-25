@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 
-import { createAnec } from "../reducers/actionReducer"
+import { newAnec } from "../reducers/anecdoteReducer"
 
 const NewAnec = () => {
     const dispatch = useDispatch()
@@ -9,7 +9,7 @@ const NewAnec = () => {
         event.preventDefault()
         const content = event.target.anec.value
         event.target.anec.value = ''
-        dispatch(createAnec(content))
+        dispatch(newAnec(content))
     }
     return (
         <div>
