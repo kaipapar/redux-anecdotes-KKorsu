@@ -8,10 +8,13 @@ const notifSlice = createSlice({
         setNotif(state, action){
             console.log('notification: ',action)
             return action.payload
+        },
+        clearNotif(){
+            return initialState
         }
     }
 })
 
 
-export const {setNotif} = notifSlice.actions
+export const {setNotif, clearNotif} = notifSlice.actions
 export default notifSlice.reducer

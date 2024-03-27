@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux"
 
 import { newAnec } from "../reducers/anecdoteReducer"
+import {setNotif, clearNotif} from '../reducers/notificationReducer'
+
 
 const NewAnec = () => {
     const dispatch = useDispatch()
@@ -10,6 +12,8 @@ const NewAnec = () => {
         const content = event.target.anec.value
         event.target.anec.value = ''
         dispatch(newAnec(content))
+        dispatch(setNotif(`You created: ${content}`))
+        setTimeout(() => dispatch(clearNotif()),5000)  
     }
     return (
         <div>
