@@ -2,17 +2,18 @@ import { useDispatch } from "react-redux"
 
 import { newAnec } from "../reducers/anecdoteReducer"
 import {setNotif, clearNotif} from '../reducers/notificationReducer'
-
+import anecService from '../services/anecdotes'
 
 const NewAnec = () => {
     const dispatch = useDispatch()
 
-    const addAnec = (event) => {
+    const addAnec = async (event) => {
         event.preventDefault()
         const content = event.target.anec.value
         event.target.anec.value = ''
-        dispatch(newAnec(content))
-        dispatch(setNotif(`You created: ${content}`))
+        const anec = await anecService.createNew(content)
+        dispatch(newAnec(anec))
+        dispatch(setNotif(`You created: ${anec}`))
         setTimeout(() => dispatch(clearNotif()),5000)  
     }
     return (
