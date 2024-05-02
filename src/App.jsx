@@ -7,12 +7,12 @@ import Notification from './components/Notification'
 import { setAnecs } from './reducers/anecdoteReducer'
 import anecService from './services/anecdotes'
 import { useDispatch } from 'react-redux'
+import { initializeAnecs } from './reducers/anecdoteReducer'
 
 const App = () => {
   const dispatch = useDispatch()
   useEffect(() => {
-    anecService
-      .getAll().then(notes => dispatch(setAnecs(notes)))
+    dispatch(initializeAnecs())
   }, [])
   
   return (
