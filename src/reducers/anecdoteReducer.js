@@ -46,4 +46,10 @@ export const createAnec = content => {
   }
 }
 
+export const saveVote = id => {
+  return async dispatch => {
+    
+  }
+}
+
 export default anecSlice.reducer
